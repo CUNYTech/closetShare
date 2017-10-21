@@ -1,18 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: arccy
-  Date: 10/16/2017
-  Time: 7:57 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <link href="/resources/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="/resources/CSS/ClosetShare.css" rel="stylesheet" />
+    <script src="/resources/Scripts/bootstrap.min.js"></script>
+    <title>Share your closet</title>
   </head>
   <body>
+  <div style="float:right">
+    <button type="button" onclick="" class="btn btn-primary" >Sign up </button>
+    <button type="button" onclick="" class="btn btn-primary" >Sign in </button>
+  </div>
 
-  <p>${someAttribute}</p>
-  $END$
+
   </body>
 </html>
