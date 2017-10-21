@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
+
+  <p>${someAttribute}</p>
   $END$
   </body>
 </html>
