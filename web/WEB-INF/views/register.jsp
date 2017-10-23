@@ -6,7 +6,7 @@
 </head>
 <body>
 Fill in the form:
-<form action="reg" method="post">
+<form action="reg">
     First Name: <input type="text" name="fname"><br>
     Last Name: <input type="text" name="lname"><br>
     Email: <input type="text" name="email"><br>
