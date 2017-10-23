@@ -7,9 +7,11 @@
     <title>Share your closet</title>
   </head>
   <body>
-  <div style="float:right">
-    <button type="button" onclick="" class="btn btn-primary" >Sign up </button>
-    <button type="button" onclick="" class="btn btn-primary" >Sign in </button>
+  <div style="text-align: center ">
+
+    <a href="register">Sign up</a>
+    <a href="login">Sign in</a>
+
   </div>
 
 
