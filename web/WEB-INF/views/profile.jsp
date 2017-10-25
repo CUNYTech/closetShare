@@ -5,9 +5,10 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <link href="<spring:url value="META-INF/resources/CSS/bootstrap.min.css" />" rel="stylesheet">
+    <link href="/resources/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="/resources/CSS/ClosetShare.css" rel="stylesheet" />
+    <script src="/resources/Scripts/bootstrap.min.js"></script>
 
-    <script src="<spring:url value="META-INF/resources/Scripts/bootstrap.min.js" />"></script>
 
     <title>Profile Setting</title>
   </head>
