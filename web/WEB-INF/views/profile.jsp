@@ -5,6 +5,10 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Website to cooporate a charity">
+    <meta name="author" content="CunyCode_closetShare">
+
     <link href="/resources/CSS/bootstrap.min.css" rel="stylesheet" />
     <link href="/resources/CSS/ClosetShare.css" rel="stylesheet" />
     <script src="/resources/Scripts/bootstrap.min.js"></script>
