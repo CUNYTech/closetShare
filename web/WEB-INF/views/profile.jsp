@@ -5,9 +5,14 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <link href="<spring:url value="META-INF/resources/CSS/bootstrap.min.css" />" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Website to cooporate a charity">
+    <meta name="author" content="CunyCode_closetShare">
 
-    <script src="<spring:url value="META-INF/resources/Scripts/bootstrap.min.js" />"></script>
+    <link href="/resources/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="/resources/CSS/ClosetShare.css" rel="stylesheet" />
+    <script src="/resources/Scripts/bootstrap.min.js"></script>
+
 
     <title>Profile Setting</title>
   </head>

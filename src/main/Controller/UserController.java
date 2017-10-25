@@ -5,9 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+//import main.Services.UserServices;
 
 @Controller
-public class RegistrationController {
+public class UserController {
     @GetMapping("/reg")
     public String Reg(HttpServletRequest request, HttpServletResponse response){
 
@@ -17,6 +18,26 @@ public class RegistrationController {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
+        //UserServices newUser = new UserServices();
+        //Integer newID = newUser.addUser(fname, lname, email, login, password);
+
         return "RegistrationSuccess";
     }
+
+
+    @GetMapping("/profile")
+
+    public String Login(HttpServletRequest request, HttpServletResponse response){
+
+
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+
+
+
+        return "profile";
+    }
+
+
+
 }
