@@ -13,7 +13,6 @@
     <link href="/resources/CSS/ClosetShare.css" rel="stylesheet" />
     <script src="/resources/Scripts/bootstrap.min.js"></script>
 
-
     <title>Profile Setting</title>
   </head>
 

@@ -10,12 +10,13 @@ public class IndexController {
     }
 
     @GetMapping("/register")
-    public String Register (){
-        return "register";
-    }
+    public String Register (){ return "register"; }
 
     @GetMapping("/login")
     public String Login (){
         return "login";
     }
+
+    @GetMapping("/home")
+    public String Home (){ return "home"; }
 }
