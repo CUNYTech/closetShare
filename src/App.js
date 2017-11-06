@@ -80,24 +80,29 @@ class App extends Component {
   }
   render() {
     return (
-      <div className='app'>
-        <header>
-            <div className="wrapper">
-              <h1>Closet-Share</h1>
-                             
-            </div>
-        </header>
-        <div className="wrapper">
-          <h1>Fun Food Friends</h1>
-            {this.state.user ?
-             <button onClick={this.logout}>Log Out</button>                
-                :
-              <button onClick={this.login}>Log In</button>              
-                }
-        </div>
-          </section>
-        </div>
+     <div className='app'>
+  <header>
+    <div className="wrapper">
+      <h1>Fun Food Friends</h1>
+      {this.state.user ?
+        <button onClick={this.logout}>Logout</button>                
+        :
+        <button onClick={this.login}>Log In</button>              
+      }
+    </div>
+  </header>
+  {this.state.user ?
+    <div>
+      <div className='user-profile'>
+        <img src={this.state.user.photoURL} />
       </div>
+    </div>
+    :
+    <div className='wrapper'>
+      <p>You must be logged in to see the potluck list and submit to it.</p>
+    </div>
+  }
+</div>
     );
   }
 }
