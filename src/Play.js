@@ -4,7 +4,7 @@ import './home.js';
 import firebase, { auth, provider } from './firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
-class App extends Component {
+class Play extends Component {
   constructor() {
     super();
     this.state = {
@@ -81,6 +81,7 @@ class App extends Component {
     itemRef.remove();
   }
   render() {
+    debugger;
     return (
   <div className='app'>
     <header>
@@ -120,4 +121,4 @@ class App extends Component {
     
   
 }
-export default App;
+export default Play;
