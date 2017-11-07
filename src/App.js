@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import './home.js';
 import firebase, { auth, provider } from './firebase.js';
+import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -25,8 +27,8 @@ class App extends Component {
     e.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
-      title: this.state.currentItem,
-      user: this.state.username
+    title: this.state.currentItem,
+    user: this.state.user.displayName || this.state.user.email
     }
     itemsRef.push(item);
     this.setState({
@@ -80,30 +82,42 @@ class App extends Component {
   }
   render() {
     return (
-     <div className='app'>
-  <header>
-    <div className="wrapper">
+  <div className='app'>
+    <header>
+      <div className="wrapper">
       <h1>Fun Food Friends</h1>
       {this.state.user ?
         <button onClick={this.logout}>Logout</button>                
         :
         <button onClick={this.login}>Log In</button>              
       }
-    </div>
-  </header>
+      </div>
+    </header>
   {this.state.user ?
     <div>
       <div className='user-profile'>
-        <img src={this.state.user.photoURL} />
+        <img src={this.state.user.photoURL} alt='bad' />
       </div>
+     <div className='container'>
+    <section className='add-item'>
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" name="username" placeholder="What's your name?" value={this.state.user.displayName || this.state.user.email} />
+        <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+        <button>Add Item</button>
+      </form>
+    </section>
+  </div>
     </div>
     :
     <div className='wrapper'>
       <p>You must be logged in to see the potluck list and submit to it.</p>
     </div>
   }
+
 </div>
-    );
-  }
+      );
+   }
+    
+  
 }
 export default App;
