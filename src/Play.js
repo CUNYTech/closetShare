@@ -86,7 +86,7 @@ class Play extends Component {
   <div className='app'>
     <header>
       <div className="wrapper">
-      <h1>Fun Food Friends</h1>
+      <h1>Closet Share</h1>
       {this.state.user ?
         <button onClick={this.logout}>Logout</button>                
         :
@@ -111,7 +111,7 @@ class Play extends Component {
     </div>
     :
     <div className='wrapper'>
-      <p>You must be logged in to see the potluck list and submit to it.</p>
+      <p>You must be logged in to see the list and submit to it.</p>
     </div>
   }
 
