@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './home.js';
+import Home from './home.js';
 import firebase, { auth, provider } from './firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
+import './App.css';
 
 
 
@@ -12,10 +15,11 @@ class Photo extends React.Component {
 
   render(){
   		return (
-    <div className='checkout'>
-    We are at Photo!!
-  </div>
-  );
+  			<div className="photo">
+   				<progress value="0" max="100" id="uploader">0%</progress>
+				<input type='file' value='upload' id='filebutton' />
+	  		</div>
+  	);
   }
  }
 

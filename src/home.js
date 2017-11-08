@@ -6,7 +6,6 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 const Home = () => {
   return (
     <div className='home'>
-   adgdzhdfhdfhdfghdf
    <Link to="/checkout" style={{color: 'black'}} activeStyle={{color: 'red'}}>Checkout</Link>
   </div>
   );
