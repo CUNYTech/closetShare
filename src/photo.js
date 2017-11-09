@@ -24,6 +24,7 @@ class Photo extends Component {
   };
 
   render() {
+  	debugger;
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
    			console.log('i hate you');

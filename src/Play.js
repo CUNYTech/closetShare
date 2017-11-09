@@ -81,7 +81,16 @@ class Play extends Component {
     itemRef.remove();
   }
   render() {
-    debugger;
+    let item_s = this.state.items.map((item) => {
+                    return (
+                      <li key={item.id}>
+                        <h3>{item.title}</h3>
+                        <p>brought by: {item.user}
+                          <button className='remove-button' onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                        </p>
+                      </li>
+                    );
+                  })
     return (
   <div className='app'>
     <header>
@@ -96,6 +105,7 @@ class Play extends Component {
     </header>
   {this.state.user ?
     <div>
+    <ul>{ item_s }</ul>
       <div className='user-profile'>
         <img src={this.state.user.photoURL} alt='bad' />
       </div>
@@ -103,7 +113,7 @@ class Play extends Component {
     <section className='add-item'>
       <form onSubmit={this.handleSubmit}>
         <input type="text" name="username" placeholder="What's your name?" value={this.state.user.displayName || this.state.user.email} />
-        <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+        <input type="text" name="currentItem" placeholder="What are Selling?" onChange={this.handleChange} value={this.state.currentItem} />
         <button>Add Item</button>
       </form>
     </section>

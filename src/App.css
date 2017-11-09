@@ -345,3 +345,7 @@ button {
   bottom: 0;
   position: absolute;
 }
+
+.remove-button {
+  margin-left: 10px;
+}
