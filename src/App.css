@@ -338,3 +338,10 @@ button {
   width: 50%;
   margin-bottom: 10px;
 }
+
+.footer{
+  background-color: #333;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
