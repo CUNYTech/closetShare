@@ -8,6 +8,7 @@ const Home = () => {
     <div className='home'>
    adgdzhdfhdfhdfghdf
    <Link to="/checkout" style={{color: 'black'}} activeStyle={{color: 'red'}}>Checkout</Link>
+   <Link to="/product" style={{color: 'black'}} activeStyle={{color: 'red'}}>Product</Link>
   </div>
   );
 };
