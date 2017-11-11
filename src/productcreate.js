@@ -1,20 +1,79 @@
-import React from 'react';
+import React, { Component } from 'react';
+import firebase, { auth, provider } from './firebase.js';
 
-const ProductCreate = () => {
+class ProductCreate extends Component {
+    constructor() {
+        super();
+        this.state = {
+          productTitle: '',
+          description: '',
+          products: [],
+          user: null // <-- add this line
+        }    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+      handleChange(e) {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      }
+      handleSubmit(e) {
+        e.preventDefault();
+        const productsRef = firebase.database().ref('products');
+        const product = {
+        productTitle: this.state.productTitle,
+        description: this.state.description
+        }
+        productsRef.push(product);
+        this.setState({
+          productTitle: '',
+          description: ''
+        });
+      }
+    
+      componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+          if (user) {
+          this.setState({ user });
+        } 
+      });
+        const productsRef = firebase.database().ref('products');
+        productsRef.on('value', (snapshot) => {
+          let products = snapshot.val();
+          let newState = [];
+          for (let product in products) {
+            newState.push({
+              id: product,
+              title: products[product].productTitle,
+              user: products[product].description
+            });
+          }
+          this.setState({
+            products: newState
+          });
+        });
+      }
+      removeItem(productId) {
+        const productRef = firebase.database().ref(`/products/${productId}`);
+        productRef.remove();
+      }
+render(){
+    debugger;
     return (
     <div className="Main">
       <h1>
       Product page create
       </h1>
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
             <div class="form-group">
-                <label for="exampleProduct">Product Title</label>
-                <input type="text" class="form-control" id="exampleProduct" placeholder="Product Title"/>
+                <label for="productTitle">Product Title</label>
+                <input type="text" name="productTitle" class="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleChange} value={this.state.productTitle}/>
             </div>
             <div class="form-group">
-                <label for="productDescription">Description</label>
-                <input type="text" class="form-control" id="eproductDescription" placeholder="Description"/>
+                <label for="description">Description</label>
+                <input type="text" name="description" class="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
             </div>
             <div class="form-group">
                 <label for="Images">Product Image</label>
@@ -27,7 +86,8 @@ const ProductCreate = () => {
     </div>
       
     );
-  };
+    }
+};
   
   
   export default ProductCreate;
