@@ -10,7 +10,16 @@ class Photo extends Component {
     progress: 0,
     avatarURL: ''
   };
+  componentDidUpdate(){
+    debugger;
+   var ref = firebase.database().ref('products').orderByChild('productTitle').equalTo('Test Product 1');
 
+   ref.on("value", function(snapshot) {
+   console.log(snapshot.val());
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+  }
   handleChangeUsername = (event) => this.setState({username: event.target.value});
   handleUploadStart = () => this.setState({isUploading: true, progress: 0});
   handleProgress = (progress) => this.setState({progress});
@@ -24,8 +33,8 @@ class Photo extends Component {
   };
 
   render() {
-  	debugger;
-  	firebase.auth().onAuthStateChanged(function(user) {
+    debugger;
+    	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
    			console.log('i hate you');
   		} else {
@@ -56,6 +65,8 @@ class Photo extends Component {
             onProgress={this.handleProgress}
           />
         </form>
+        {console.log(this.state.avatarURL)}
+        <img src={this.state.avatarURL} alt='none' />
       </div>
     );
   }

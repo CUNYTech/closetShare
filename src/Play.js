@@ -106,9 +106,9 @@ class Play extends Component {
   {this.state.user ?
     <div>
     <ul>{ item_s }</ul>
-      // <div className='user-profile'>
-      //   <img src={this.state.user.photoURL} alt='bad' />
-      // </div>
+      <div className='user-profile'>
+        <img src={this.state.user.photoURL} alt='bad' />
+      </div>
      <div className='container'>
     <section className='add-item'>
       <form onSubmit={this.handleSubmit}>
