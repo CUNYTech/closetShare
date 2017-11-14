@@ -96,9 +96,11 @@ class Play extends Component {
     </header>
   {this.state.user ?
     <div>
-      <div className='user-profile'>
-        <img src={this.state.user.photoURL} alt='bad' />
-      </div>
+      <Link to="/profile">
+        <div className='user-profile'>
+          <img src={this.state.user.photoURL} alt='bad' />
+        </div>
+      </Link>
      <div className='container'>
     <section className='add-item'>
       <form onSubmit={this.handleSubmit}>

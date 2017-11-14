@@ -5,6 +5,7 @@ import Home from './home';
 import Checkout from './checkout';
 import Photo from './photo';
 import Footer from './footer';
+import Profile from './profile';
 
 
 const Entry = (props) => {
@@ -14,9 +15,10 @@ const Entry = (props) => {
             	<Route exact path="/" component={ Play } />
             	<Route exact path="/home" component={ Home } />
             	<Route exact path="/checkout" component={Checkout} />
+              <Route exact path="/profile" component={Profile} />
             	<Route exact path="/photos" component={Photo} />
-            </Switch>
-            <Footer />
+          </Switch>
+          <Footer />
         </div>
   );
 };
