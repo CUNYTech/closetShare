@@ -45,8 +45,8 @@ class ProductCreate extends Component {
           for (let product in products) {
             newState.push({
               id: product,
-              title: products[product].productTitle,
-              user: products[product].description
+              productTitle: products[product].productTitle,
+              description: products[product].description
             });
           }
           this.setState({
@@ -77,7 +77,7 @@ render(){
             </div>
             <div class="form-group">
                 <label for="Images">Product Image</label>
-                <input type="file" id="Images"/>
+                <input type="file" name="images" id="images"/>
                 <p class="help-block">Upload product images here in order of appearance</p>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>

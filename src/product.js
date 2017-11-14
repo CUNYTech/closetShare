@@ -1,17 +1,69 @@
-import React from 'react';
+// need a list of all items with a filter and a search. 
+//maybe another page for "My postings"
+
+import React, { Component } from 'react';
 import Entry from './entry';
+import firebase, { auth, provider } from './firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 
-const Product = () => {
-  return (
-    <h1>
-    Product page
-    <Link to="/product/create" style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
-    </h1>
-    
-  );
+class Product extends Component {
+  constructor() {
+    super();
+    this.state = {
+      productTitle: '',
+      description: '',
+      products: [],
+      user: null // <-- add this line
+    }    
+  }
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+      this.setState({ user });
+    } 
+  });
+    const productsRef = firebase.database().ref('products');
+    productsRef.on('value', (snapshot) => {
+      let products = snapshot.val();
+      let newState = [];
+      for (let product in products) {
+        newState.push({
+          id: product,
+          productTitle: products[product].productTitle,
+          description: products[product].description
+        });
+      }
+      this.setState({
+        products: newState
+      });
+    });
+  }
+  removeItem(productId) {
+    const productRef = firebase.database().ref(`/products/${productId}`);
+    productRef.remove();
+  }
+  render(){
+    let prod_s = this.state.products.map(function(prod){
+      return(
+        <li key={prod.id}>
+        <h3>{prod.productTitle}</h3>
+        <p>brought by: {prod.description}
+          <button className='remove-button' onClick={() => this.removeItem(prod.id)}>Remove Item</button>
+        </p>
+      </li>
+      );
+    });
+    return (
+      <div>
+        <h1>
+          Product page
+          <br/><Link to="/product/create" style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
+        </h1>
+        <ul>{prod_s}</ul>
+      </div>
+    );
+  }
 };
-
 
 export default Product;
