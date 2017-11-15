@@ -7,6 +7,8 @@ class ProductCreate extends Component {
         this.state = {
           productTitle: '',
           description: '',
+          price: '',
+          user_id: '',
           products: [],
           user: null // <-- add this line
         }    
@@ -21,14 +23,19 @@ class ProductCreate extends Component {
       handleSubmit(e) {
         e.preventDefault();
         const productsRef = firebase.database().ref('products');
+        debugger;
         const product = {
         productTitle: this.state.productTitle,
-        description: this.state.description
+        description: this.state.description,
+        price: this.state.price,
+        user_id: this.state.user.uid
         }
         productsRef.push(product);
         this.setState({
           productTitle: '',
-          description: ''
+          description: '',
+          price: '',
+          user_id: ''
         });
       }
     
@@ -42,11 +49,14 @@ class ProductCreate extends Component {
         productsRef.on('value', (snapshot) => {
           let products = snapshot.val();
           let newState = [];
+          debugger;
           for (let product in products) {
             newState.push({
               id: product,
               productTitle: products[product].productTitle,
-              description: products[product].description
+              description: products[product].description,
+              price: products[product].price,
+              user_id : this.state.user.uid
             });
           }
           this.setState({
@@ -54,10 +64,7 @@ class ProductCreate extends Component {
           });
         });
       }
-      removeItem(productId) {
-        const productRef = firebase.database().ref(`/products/${productId}`);
-        productRef.remove();
-      }
+
 render(){
     debugger;
     return (
@@ -75,6 +82,10 @@ render(){
                 <label for="description">Description</label>
                 <input type="text" name="description" class="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
             </div>
+            <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" name="price" class="form-control" id="Price" placeholder="Price" onChange={this.handleChange} value={this.state.price}/>
+        </div>
             <div class="form-group">
                 <label for="Images">Product Image</label>
                 <input type="file" name="images" id="images"/>

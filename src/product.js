@@ -13,6 +13,7 @@ class Product extends Component {
     this.state = {
       productTitle: '',
       description: '',
+      price:'',
       products: [],
       user: null // <-- add this line
     }    
@@ -31,7 +32,8 @@ class Product extends Component {
         newState.push({
           id: product,
           productTitle: products[product].productTitle,
-          description: products[product].description
+          description: products[product].description,
+          price: products[product].price
         });
       }
       this.setState({
@@ -44,13 +46,12 @@ class Product extends Component {
     productRef.remove();
   }
   render(){
+    debugger;
     let prod_s = this.state.products.map(function(prod){
       return(
         <li key={prod.id}>
         <h3>{prod.productTitle}</h3>
-        <p>brought by: {prod.description}
-          <button className='remove-button' onClick={() => this.removeItem(prod.id)}>Remove Item</button>
-        </p>
+        <p>Price: {prod.price}</p>
       </li>
       );
     });
