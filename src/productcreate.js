@@ -43,6 +43,7 @@ class ProductCreate extends Component {
         auth.onAuthStateChanged((user) => {
           if (user) {
           this.setState({ user });
+          this.setState({user_id: user.uid});
         } 
       });
         const productsRef = firebase.database().ref('products');
@@ -56,7 +57,7 @@ class ProductCreate extends Component {
               productTitle: products[product].productTitle,
               description: products[product].description,
               price: products[product].price,
-              user_id : this.state.user.uid
+              user_id : products[product].user_id
             });
           }
           this.setState({
