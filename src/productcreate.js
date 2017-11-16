@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import firebase, { auth, provider } from './firebase.js';
 
 class ProductCreate extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           productTitle: '',
           description: '',
@@ -67,6 +67,7 @@ class ProductCreate extends Component {
       }
 
 render(){
+  console.log(this.props);
     debugger;
     return (
     <div className="Main">

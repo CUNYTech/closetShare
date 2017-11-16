@@ -5,7 +5,7 @@ import Home from './home';
 import Checkout from './checkout';
 import Product from './product';
 import ProductCreate from './productcreate';
-
+import ProductDetail from './productdetail';
 
 const Entry = (props) => {
     return (
@@ -14,7 +14,8 @@ const Entry = (props) => {
             <Route exact path="/home" component={ Home } />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/product" component={Product} />
-            <Route exact path="/product/create" component={ProductCreate} />
+            <Route exact path="/product/create/:id" component={ProductCreate} />
+            <Route exact path="/product/productdetail" component={ProductDetail} />
         </div>
   );
 };

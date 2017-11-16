@@ -15,6 +15,7 @@ class Product extends Component {
       description: '',
       price:'',
       products: [],
+      test: 'hello world',
       user: null // <-- add this line
     }    
   }
@@ -51,7 +52,9 @@ class Product extends Component {
       return(
         <li key={prod.id}>
         <h3>{prod.productTitle}</h3>
+        <p>Image Here</p>
         <p>Price: {prod.price}</p>
+        <Link to={`/product/productdetail`} style={{color: 'black'}} activeStyle={{color: 'red'}}>details</Link>
       </li>
       );
     });
@@ -59,7 +62,7 @@ class Product extends Component {
       <div>
         <h1>
           Product page
-          <br/><Link to="/product/create" style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
+          <br/><Link to={`/product/create/${this.state.test}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
         </h1>
         <ul>{prod_s}</ul>
       </div>
