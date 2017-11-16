@@ -91,7 +91,7 @@ class Play extends Component {
                       </li>
                     );
                   })
-    return (
+  return (
   <div className='app'>
     <header>
       <div className="wrapper">
