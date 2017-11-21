@@ -3,9 +3,9 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import Play from './Play';
 import Home from './home';
 import Checkout from './checkout';
-import Product from './product';
-import ProductCreate from './productcreate';
-import ProductDetail from './productdetail';
+import Product from './Product_Pages/product';
+import ProductCreate from './Product_Pages/productcreate';
+import ProductDetail from './Product_Pages/productdetail';
 
 const Entry = (props) => {
     return (

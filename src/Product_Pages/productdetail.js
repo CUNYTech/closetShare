@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider } from './firebase.js';
+import firebase, { auth, provider } from '../firebase.js';
 
 class ProductDetail extends Component {
     constructor(props){
