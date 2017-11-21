@@ -7,7 +7,8 @@ class ProductDetail extends Component {
         this.state = {
             product: {},
             user: null // <-- add this line
-          }   
+          }  
+    this.check_button = this.check_button.bind(this); 
     }
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
@@ -22,9 +23,17 @@ class ProductDetail extends Component {
          }) 
         });
       }
+      check_button() {
+      if (this.state.user){
+        if (this.state.user.uid === this.state.product.user_id){
+            return ( <button>oh shit</button>
+            );
+        } 
+     }
+    }
 
     render(){
-        
+        console.log(this.state.user);
         return(
         <div>
             <h1>Product Details</h1>
@@ -35,6 +44,7 @@ class ProductDetail extends Component {
             <p>Price: {this.state.product.price}</p>
             <p>Product Description: {this.state.product.description}</p>
             <p>Created by: {this.state.product.user_name}</p>
+            <p>{this.check_button()}</p>
           </li>
             </ul>
         </div>
