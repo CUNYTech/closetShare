@@ -9,6 +9,7 @@ class ProductCreate extends Component {
           description: '',
           price: '',
           user_id: '',
+          user_name:'',
           products: [],
           user: null // <-- add this line
         }    
@@ -28,14 +29,16 @@ class ProductCreate extends Component {
         productTitle: this.state.productTitle,
         description: this.state.description,
         price: this.state.price,
-        user_id: this.state.user.uid
+        user_id: this.state.user.uid,
+        user_name: this.state.user.displayName
         }
         productsRef.push(product);
         this.setState({
           productTitle: '',
           description: '',
           price: '',
-          user_id: ''
+          user_id: '',
+          user_name: ''
         });
       }
     
@@ -57,7 +60,8 @@ class ProductCreate extends Component {
               productTitle: products[product].productTitle,
               description: products[product].description,
               price: products[product].price,
-              user_id : products[product].user_id
+              user_id : products[product].user_id,
+              user_name : products[product].displayName
             });
           }
           this.setState({

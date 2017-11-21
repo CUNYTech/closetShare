@@ -18,6 +18,7 @@ class Product extends Component {
       test: 'hello world',
       user: null // <-- add this line
     }    
+    this.removeItem = this.removeItem.bind(this);
   }
   componentDidMount() {
     auth.onAuthStateChanged((user) => {
@@ -54,7 +55,7 @@ class Product extends Component {
         <h3>{prod.productTitle}</h3>
         <p>Image Here</p>
         <p>Price: {prod.price}</p>
-        <Link to={`/product/productdetail`} style={{color: 'black'}} activeStyle={{color: 'red'}}>details</Link>
+        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>details</Link>
       </li>
       );
     });

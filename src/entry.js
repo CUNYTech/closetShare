@@ -15,7 +15,7 @@ const Entry = (props) => {
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/product" component={Product} />
             <Route exact path="/product/create/:id" component={ProductCreate} />
-            <Route exact path="/product/productdetail" component={ProductDetail} />
+            <Route exact path="/product/productdetail/:id" component={ProductDetail} />
         </div>
   );
 };
