@@ -5,8 +5,9 @@ import Checkout from './checkout';
 import Register from './register';
 import Signin from './signin';
 import Profile from './profile';
-
-
+import Product from './Product_Pages/product';
+import ProductCreate from './Product_Pages/productcreate';
+import ProductDetail from './Product_Pages/productdetail';
 
 const Entry = (props) => {
     return (
@@ -16,6 +17,9 @@ const Entry = (props) => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/product" component={Product} />
+            <Route exact path="/product/create/:id" component={ProductCreate} />
+            <Route exact path="/product/productdetail/:id" component={ProductDetail} />
         </div>
   );
 };
