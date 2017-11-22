@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Entry from './entry';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+import firebase, { auth, provider } from './firebase.js';
 
+// For material-ui
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './navBar';
 
+// For Card 
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
@@ -35,7 +38,26 @@ class Profile extends Component {
     })
   }
 
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {this.setState({ user });} 
+      else{
+        console.log('No user is signed in.');
+      }
+    });
+
+    var user = firebase.auth().currentUser;
+    var name, email, photoUrl;
+
+    if (user != null) {
+      name = user.displayName;
+      email = user.email;
+      photoUrl = user.photoURL;
+   }
+  }
+
   render() {
+    console.log(this.state.user);
     return (
       <div>
         <NavBar
@@ -58,12 +80,9 @@ class Profile extends Component {
           <div>
             <Paper style={styles} zDepth={1}>
               <h3>My profile</h3>
-              <div>Account Info</div>
-              <ul>
-                 <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                 <li>Aliquam tincidunt mauris eu risus.</li>
-                 <li>Vestibulum auctor dapibus neque.</li>
-              </ul>
+              <h4>Account Info</h4>
+              <p id="name">Name: {this.state.name}</p>
+              <p id="email">Aliquam tincidunt mauris eu risus.</p>
             </Paper>
             
             <Card>

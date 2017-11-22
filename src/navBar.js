@@ -59,11 +59,12 @@ class NavBar extends Component {
             open={this.props.open}
             onRequestChange={() => this.props.onToggle()}
           >
-            <MenuItem>React</MenuItem>
-            <MenuItem>Redux</MenuItem>
-            <MenuItem>React Router</MenuItem>
-            <MenuItem>Material UI</MenuItem>
-            <MenuItem>Electron</MenuItem>
+            <MenuItem>WOMEN</MenuItem>
+            <MenuItem>MEN</MenuItem>
+            <MenuItem>SHOES</MenuItem>
+            <MenuItem>KIDS</MenuItem>
+            <MenuItem>BRANDS</MenuItem>
+            <MenuItem>CHARITIES</MenuItem>
             {this.state.user ?
               <div>
                 <Link to="/profile">
