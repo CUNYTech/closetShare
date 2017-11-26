@@ -28,6 +28,8 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
+      users: {},
+      user: null ,
       open: false
     }
   }
@@ -53,10 +55,19 @@ class Profile extends Component {
       name = user.displayName;
       email = user.email;
       photoUrl = user.photoURL;
-   }
+    }
+
+    const productsRef = firebase.database().ref('user');
+    productsRef.on('value', (snapshot) => {
+      this.setState({
+         user: snapshot.val()
+      }) 
+   });
+
   }
 
   render() {
+    debugger;
     console.log(this.state.user);
     return (
       <div>
