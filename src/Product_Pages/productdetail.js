@@ -6,7 +6,9 @@ class ProductDetail extends Component {
         super(props);
         this.state = {
             product: {},
-            user: null // <-- add this line
+            user: null, // <-- add this line
+            product_id: this.props.match.params.id,
+            productRef: null
           }  
     this.check_button = this.check_button.bind(this); 
     }
@@ -16,24 +18,35 @@ class ProductDetail extends Component {
           this.setState({ user });
         } 
       });
-      const productsRef = firebase.database().ref(`/products/${this.props.match.params.id}`);
+      const productsRef = firebase.database().ref(`/products/${this.state.product_id}`);
       productsRef.on('value', (snapshot) => {
          this.setState({
-             product: snapshot.val()
+             product: snapshot.val(),
+             producsRef: productsRef
          }) 
         });
       }
+      delete_record(){
+        console.log("delete")
+      }
+      edit_record(){
+          console.log("edit")
+      }
+
       check_button() {
       if (this.state.user){
         if (this.state.user.uid === this.state.product.user_id){
-            return ( <button>oh shit</button>
+            return ( 
+                <div>
+                    <button onClick={this.edit_record}>edit</button>
+                    <button onClick={this.delete_record}>delete</button>
+                </div>
             );
         } 
      }
     }
 
     render(){
-        console.log(this.state.user);
         return(
         <div>
             <h1>Product Details</h1>
@@ -44,7 +57,7 @@ class ProductDetail extends Component {
             <p>Price: {this.state.product.price}</p>
             <p>Product Description: {this.state.product.description}</p>
             <p>Created by: {this.state.product.user_name}</p>
-            <p>{this.check_button()}</p>
+            <div>{this.check_button()}</div>
           </li>
             </ul>
         </div>

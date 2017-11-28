@@ -48,14 +48,13 @@ class Product extends Component {
     productRef.remove();
   }
   render(){
-    debugger;
     let prod_s = this.state.products.map(function(prod){
       return(
         <li key={prod.id}>
         <h3>{prod.productTitle}</h3>
         <p>Image Here</p>
         <p>Price: {prod.price}</p>
-        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>details</Link>
+        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}}>details</Link>
       </li>
       );
     });
@@ -63,7 +62,7 @@ class Product extends Component {
       <div>
         <h1>
           Product page
-          <br/><Link to={`/product/create/${this.state.test}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
+          <br/><Link to={`/product/create/${this.state.test}`} style={{color: 'black'}}>Create a product</Link>
         </h1>
         <ul>{prod_s}</ul>
       </div>

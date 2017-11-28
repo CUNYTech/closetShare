@@ -24,7 +24,6 @@ class ProductCreate extends Component {
       handleSubmit(e) {
         e.preventDefault();
         const productsRef = firebase.database().ref('products');
-        debugger;
         const product = {
         productTitle: this.state.productTitle,
         description: this.state.description,
@@ -53,7 +52,6 @@ class ProductCreate extends Component {
         productsRef.on('value', (snapshot) => {
           let products = snapshot.val();
           let newState = [];
-          debugger;
           for (let product in products) {
             newState.push({
               id: product,
@@ -71,8 +69,6 @@ class ProductCreate extends Component {
       }
 
 render(){
-  console.log(this.props);
-    debugger;
     return (
     <div className="Main">
       <h1>
