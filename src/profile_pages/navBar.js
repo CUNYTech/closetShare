@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, MenuItem, Drawer } from 'material-ui';
-import './App.css';
-import firebase, { auth, provider } from './firebase.js';
+import '../App.css';
+import firebase, { auth, provider } from '../firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 

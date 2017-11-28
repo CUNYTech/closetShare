@@ -4,7 +4,7 @@ import Home from './home';
 import Checkout from './checkout';
 import Register from './register';
 import Signin from './signin';
-import Profile from './profile';
+import Profile from './profile_pages/profile';
 import Product from './Product_Pages/product';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
