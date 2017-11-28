@@ -65,18 +65,6 @@ class NavBar extends Component {
             <MenuItem>KIDS</MenuItem>
             <MenuItem>BRANDS</MenuItem>
             <MenuItem>CHARITIES</MenuItem>
-            {this.state.user ?
-              <div>
-                <Link to="/profile">
-                  <div className='user-profile'>
-                    <img src={this.state.user.photoURL} alt='bad' />
-                  </div>
-                </Link>
-              </div>
-              :
-              <div>
-              </div>
-            }
           </Drawer>
           <AppBar
             title="React Study"
