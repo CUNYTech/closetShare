@@ -1,11 +1,43 @@
 body {
     background-color: white;
-    background: linear-gradient(to bottom right, white, #bcbdc4);
     height: auto;
     width:100%;
     overflow: scroll;
 }
 
+.navbar{
+margin-bottom: 50px;
+border-radius: 0;
+}
+
+
+input[type=text] {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  width: 350px;
+  padding: 12px 20px 12px 40px;
+  background-color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  left: 10%;
+  position: relative;
+}
+
+
+.dropdown-menu a:hover{
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: yellow;
+  
+}
 
 
 
