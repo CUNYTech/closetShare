@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import Entry from './entry';
+import Entry from '../entry';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
-import firebase, { auth, provider } from './firebase.js';
+import firebase, { auth, provider } from '../firebase.js';
 
-// For material-ui
+// Material-ui theme
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './navBar';
 
-// For Card 
+// Material-ui for Card
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-// For Menu items  
+// Material-ui for Menu items  
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -28,8 +28,6 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      users: {},
-      user: null ,
       open: false
     }
   }
@@ -41,34 +39,36 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    this.grabData()
     auth.onAuthStateChanged((user) => {
-      if (user) {this.setState({ user });} 
+      if (user) {this.setState({ user});
+      //console.log(user.displayName)
+    } 
       else{
         console.log('No user is signed in.');
       }
     });
-
-    var user = firebase.auth().currentUser;
-    var name, email, photoUrl;
-
-    if (user != null) {
-      name = user.displayName;
-      email = user.email;
-      photoUrl = user.photoURL;
-    }
-
-    const productsRef = firebase.database().ref('user');
-    productsRef.on('value', (snapshot) => {
-      this.setState({
-         user: snapshot.val()
-      }) 
-   });
-
+    
+    //var fullName: '${this.state.fname} ${this.state.lname}';
+    
   }
 
+grabData = () => {
+  const productsRef = firebase.database().ref('users');
+    productsRef.on('value', (snapshot) => {
+      var _this = this;
+      snapshot.forEach(function(childsnap){
+      //console.log('child snap',childsnap.val().fname)
+      _this.setState({
+        fname: childsnap.val().fname,
+        email: childsnap.val().email
+      })
+     })
+    });
+}
+
   render() {
-    debugger;
-    console.log(this.state.user);
+    console.log(this.state.fname);
     return (
       <div>
         <NavBar
@@ -92,28 +92,9 @@ class Profile extends Component {
             <Paper style={styles} zDepth={1}>
               <h3>My profile</h3>
               <h4>Account Info</h4>
-              <p id="name">Name: {this.state.name}</p>
-              <p id="email">Aliquam tincidunt mauris eu risus.</p>
+              <p>Name: {this.state.fname}</p>
+              <p>E-mail: {this.state.email}</p>
             </Paper>
-            
-            <Card>
-              <CardHeader
-                title="Without Avatar"
-                subtitle="Subtitle"
-                actAsExpander={true}
-                showExpandableButton={true}
-              />
-              <CardActions>
-                <FlatButton label="Action1" />
-                <FlatButton label="Action2" />
-              </CardActions>
-              <CardText expandable={true}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-              </CardText>
-            </Card>
           </div>
         </MuiThemeProvider>
       </div>
