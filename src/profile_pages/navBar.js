@@ -59,15 +59,18 @@ class NavBar extends Component {
             open={this.props.open}
             onRequestChange={() => this.props.onToggle()}
           >
-            <MenuItem>WOMEN</MenuItem>
-            <MenuItem>MEN</MenuItem>
+            <MenuItem>HOME</MenuItem>
+            <MenuItem>PRODUCTS</MenuItem>
+            <MenuItem>WOMEN CLOTHING</MenuItem>
+            <MenuItem>MEN CLOTHING</MenuItem>
             <MenuItem>SHOES</MenuItem>
             <MenuItem>KIDS</MenuItem>
             <MenuItem>BRANDS</MenuItem>
             <MenuItem>CHARITIES</MenuItem>
+            <MenuItem>OTHER</MenuItem>
           </Drawer>
           <AppBar
-            title="React Study"
+            title="Closet Share"
             onLeftIconButtonTouchTap={ () => this.props.onToggle()}
           />
         </div>

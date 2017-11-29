@@ -214,3 +214,10 @@ header .wrapper {
     bottom: 0;
     position: fixed;
 }
+
+
+.fl-left {float: left;}
+.margin-2rem {margin: 2rem;}
+.margin-b-5rem {margin-bottom: 5rem;}
+.padding-2rem {padding: 2rem;}
+.flow-root {display: flow-root;}
