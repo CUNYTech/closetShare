@@ -9,10 +9,6 @@ import Product from './Product_Pages/product';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
 
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-
 const Entry = (props) => {
     return (
         <div>
