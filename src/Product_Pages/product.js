@@ -15,7 +15,6 @@ class Product extends Component {
       description: '',
       price:'',
       products: [],
-      test: 'hello world',
       user: null // <-- add this line
     }    
     this.removeItem = this.removeItem.bind(this);
@@ -59,10 +58,10 @@ class Product extends Component {
       );
     });
     return (
-      <div>
+      <div className="container-fluid">
         <h1>
           Product page
-          <br/><Link to={`/product/create/${this.state.test}`} style={{color: 'black'}}>Create a product</Link>
+          <br/><Link to={`/product/create`} style={{color: 'black'}}>Create a product</Link>
         </h1>
         <ul>{prod_s}</ul>
       </div>
