@@ -22,7 +22,8 @@ class ProductDetail extends Component {
     this.check_button = this.check_button.bind(this); 
     this.delete_record = this.delete_record.bind(this);
     this.edit_record = this.edit_record.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     }
     
     componentDidMount() {
@@ -34,7 +35,12 @@ class ProductDetail extends Component {
       const productsRef = firebase.database().ref(`/products/${this.state.product_id}`);
       productsRef.on('value', (snapshot) => {
          this.setState({
-             product: snapshot.val()
+             product: snapshot.val(),
+             productTitle: snapshot.val().productTitle,
+             description: snapshot.val().description,
+             price: snapshot.val().price,
+             user_id: snapshot.val().user_id,
+             user_name:snapshot.val().user_name
          }) 
         });
       }
@@ -49,27 +55,34 @@ class ProductDetail extends Component {
             alert("Okay");
         }
       }
-
-      handleSubmit(e) {
+      handleChange(e) {
         e.preventDefault();
-        const productsRef = firebase.database().ref(`products/${this.state.product_id}`);
-        const product = {
-        productTitle: this.state.productTitle,
-        description: this.state.description,
-        price: this.state.price,
-        user_id: this.state.user.uid,
-        user_name: this.state.user.displayName
-        }
-        productsRef.set(product);
         this.setState({
-          productTitle: '',
-          description: '',
-          price: '',
-          user_id: '',
-          user_name: '',
-          open: false
+          [e.target.name]: e.target.value
         });
       }
+
+    //   handleSubmit(e) {
+    //     e.preventDefault();
+    //     const productsRef = firebase.database().ref(`products/${this.state.product_id}`);
+    //     const product = {
+    //     productTitle: this.state.productTitle,
+    //     description: this.state.description,
+    //     price: this.state.price,
+    //     user_id: this.state.user.uid,
+    //     user_name: this.state.user.displayName
+    //     }
+    //     productsRef.set(product);
+    //     this.setState({
+    //       productTitle: '',
+    //       description: '',
+    //       price: '',
+    //       user_id: '',
+    //       user_name: '',
+    //       open: false
+    //     });
+    //   }
+
       handleOpen = () => {
         this.setState({open: true});
       };
@@ -77,10 +90,18 @@ class ProductDetail extends Component {
       handleClose = () => {
         this.setState({open: false});
       };
+      
       edit_record(){
-          return(
-              console.log("hello")
-          );
+          const productsRef = firebase.database().ref(`products/${this.state.product_id}`);
+          const product = {
+          productTitle: this.state.productTitle,
+          description: this.state.description,
+          price: this.state.price,
+          user_id: this.state.user_id,
+          user_name: this.state.user_name
+          }
+          productsRef.set(product);
+          this.handleClose();
       }
 
       check_button() {
@@ -110,29 +131,17 @@ class ProductDetail extends Component {
                             >
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
-                                    <TextField
-                                    id="productTitle"
-                                    value={this.state.productTitle}
-                                    onChange={this.handleChange}
-                                    floatingLabelText="Product Title"
-                                    />
+                                    <label for="productTitle">Product Title</label>
+                                    <input type="text" name="productTitle" className="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleChange} value={this.state.productTitle}/>
                                 </div>
                                 <div className="form-group">
-                                    <TextField
-                                    id="description"
-                                    value={this.state.description}
-                                    onChange={this.handleChange}
-                                    floatingLabelText="Product Description"
-                                  />
+                                    <label for="description">Description</label>
+                                    <input type="text" name="description" className="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
                                 </div>
                                 <div className="form-group">
-                                    <TextField
-                                    id="Price"
-                                    value={this.state.price}
-                                    onChange={this.handleChange}
-                                    floatingLabelText="Product Price"
-                                    />
-                                </div>
+                                <label for="price">Price</label>
+                                <input type="text" name="price" className="form-control" id="Price" placeholder="Price" onChange={this.handleChange} value={this.state.price}/>
+                            </div>
                             </form>
                             </Dialog>
                         <RaisedButton onClick={this.delete_record}>Delete</RaisedButton>
