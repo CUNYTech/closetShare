@@ -3,6 +3,8 @@ import firebase, { auth, provider } from '../firebase.js';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 class ProductDetail extends Component {
     constructor(props){
@@ -106,9 +108,32 @@ class ProductDetail extends Component {
                                 modal={true}
                                 open={this.state.open}
                             >
-                                <form>
-                                <input></input>
-                                </form>
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                    <TextField
+                                    id="productTitle"
+                                    value={this.state.productTitle}
+                                    onChange={this.handleChange}
+                                    floatingLabelText="Product Title"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <TextField
+                                    id="description"
+                                    value={this.state.description}
+                                    onChange={this.handleChange}
+                                    floatingLabelText="Product Description"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                    <TextField
+                                    id="Price"
+                                    value={this.state.price}
+                                    onChange={this.handleChange}
+                                    floatingLabelText="Product Price"
+                                    />
+                                </div>
+                            </form>
                             </Dialog>
                         <RaisedButton onClick={this.delete_record}>Delete</RaisedButton>
                     </div>

@@ -14,6 +14,8 @@ const Home = () => {
    <br />
    <Link to="/signin" style={{color: 'black'}} >Sign in</Link>
    <br />
+   <Link to="/profile" style={{color: 'black'}} >Profile</Link>
+   <br />
    <Link to="/product" style={{color: 'black'}} activeStyle={{color: 'red'}}>Product</Link>
   </div>
   );

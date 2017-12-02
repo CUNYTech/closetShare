@@ -1,5 +1,5 @@
 import React from 'react';
-
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 const Checkout = () => {
@@ -9,6 +9,5 @@ const Checkout = () => {
     </div>
   );
 };
-
 
 export default Checkout;
