@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, MenuItem, Drawer } from 'material-ui';
-import '../App.css';
-import firebase, { auth, provider } from '../firebase.js';
-import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+import './App.css';
+import Entry from './entry';
+import firebase, { auth, provider } from './firebase.js';
+import { Route, Redirect, Switch, Link, HashRouter, Router} from 'react-router-dom';
+
 
 
 class NavBar extends Component {
@@ -60,7 +62,8 @@ class NavBar extends Component {
             onRequestChange={() => this.props.onToggle()}
           >
             <MenuItem>HOME</MenuItem>
-            <MenuItem>PRODUCTS</MenuItem>
+            <MenuItem>PRODUCTS
+            </MenuItem>
             <MenuItem>WOMEN CLOTHING</MenuItem>
             <MenuItem>MEN CLOTHING</MenuItem>
             <MenuItem>SHOES</MenuItem>

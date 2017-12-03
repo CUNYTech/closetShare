@@ -16,7 +16,7 @@ const Home = () => {
    <br />
    <Link to="/profile" style={{color: 'black'}} >Profile</Link>
    <br />
-   <Link to="/product" style={{color: 'black'}} activeStyle={{color: 'red'}}>Product</Link>
+   <Link to="/product" style={{color: 'black'}}>Product</Link>
   </div>
   );
 };

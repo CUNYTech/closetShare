@@ -62,26 +62,6 @@ class ProductDetail extends Component {
         });
       }
 
-    //   handleSubmit(e) {
-    //     e.preventDefault();
-    //     const productsRef = firebase.database().ref(`products/${this.state.product_id}`);
-    //     const product = {
-    //     productTitle: this.state.productTitle,
-    //     description: this.state.description,
-    //     price: this.state.price,
-    //     user_id: this.state.user.uid,
-    //     user_name: this.state.user.displayName
-    //     }
-    //     productsRef.set(product);
-    //     this.setState({
-    //       productTitle: '',
-    //       description: '',
-    //       price: '',
-    //       user_id: '',
-    //       user_name: '',
-    //       open: false
-    //     });
-    //   }
 
       handleOpen = () => {
         this.setState({open: true});
