@@ -5,6 +5,8 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Entry from '../entry';
+import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 class ProductDetail extends Component {
     constructor(props){
@@ -52,7 +54,7 @@ class ProductDetail extends Component {
             productsRef.remove();
             alert("Deleted");
         }else{
-            alert("Okay");
+            alert("Canceled");
         }
       }
       handleChange(e) {
@@ -102,7 +104,7 @@ class ProductDetail extends Component {
             return ( 
                 <div>
                     <div>
-                        <RaisedButton onClick={this.handleOpen}>Edit</RaisedButton>
+                        <RaisedButton primary={true} onClick={this.handleOpen}>Edit</RaisedButton>
                             <Dialog
                                 title="Edit Product"
                                 actions={actions}
@@ -124,7 +126,7 @@ class ProductDetail extends Component {
                             </div>
                             </form>
                             </Dialog>
-                        <RaisedButton onClick={this.delete_record}>Delete</RaisedButton>
+                        <RaisedButton backgroundColor="#D32F2F" onClick={this.delete_record}>Delete</RaisedButton>
                     </div>
                 </div>
             );
@@ -136,17 +138,30 @@ class ProductDetail extends Component {
         
         return(
         <div>
-            <h1>Product Details</h1>
-                <ul>
-                    <li key={this.state.product.id}>
-                        <h3>{this.state.product.productTitle}</h3>
-                        <p>Image Here</p>
-                        <p>Price: {this.state.product.price}</p>
-                        <p>Product Description: {this.state.product.description}</p>
-                        <p>Created by: {this.state.product.user_name}</p>
-                        <div>{this.check_button()}</div>
-                    </li>
-                 </ul>
+            <div className="col-md-9" >
+                <h2>Product Details</h2>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/>
+                <div className="col-md-9">
+                    <Card >
+                    <CardMedia
+                      overlay={<CardTitle title={this.state.product.productTitle} />}
+                    >
+                      <img src="images/nature-600-337.jpg" alt="" />
+                    </CardMedia>
+                    <CardTitle>
+                    {this.state.product.productTitle}
+                    </CardTitle>
+                    <CardText>
+                    <p>Price: {this.state.product.price}</p>
+                    <p>Product Description: {this.state.product.description}</p>
+                    <p>Created by: {this.state.product.user_name}</p>
+                    </CardText>
+                    <CardActions>
+                    <div>{this.check_button()}</div>
+                    </CardActions>
+                  </Card>
+                  </div>
         </div>
         );
     }

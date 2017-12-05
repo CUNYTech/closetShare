@@ -21,15 +21,18 @@ class Root extends Component{
 
   render(){
     return(
-  <MuiThemeProvider>
-  <NavBar
-  onToggle={() => this.handleToggle()}
-  open={this.state.open}
-  />
+  
     <HashRouter>
-      <Entry />
+    <MuiThemeProvider>
+    <NavBar
+    onToggle={() => this.handleToggle()}
+    open={this.state.open}
+    />
+    <Entry />
+    </MuiThemeProvider>
+      
     </HashRouter>
-  </MuiThemeProvider>
+  
     )
   }
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from '../firebase.js';
+import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 class ProductCreate extends Component {
     constructor(props) {

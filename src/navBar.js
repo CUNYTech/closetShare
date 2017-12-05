@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, MenuItem, Drawer } from 'material-ui';
 import './App.css';
-import Entry from './entry';
 import firebase, { auth, provider } from './firebase.js';
-import { Route, Redirect, Switch, Link, HashRouter, Router} from 'react-router-dom';
+import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+
 
 
 
@@ -53,7 +53,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+
         <div>
           <Drawer
             docked={false}
@@ -61,25 +61,21 @@ class NavBar extends Component {
             open={this.props.open}
             onRequestChange={() => this.props.onToggle()}
           >
-            <MenuItem>HOME</MenuItem>
-            <MenuItem>PRODUCTS
-            </MenuItem>
-            <MenuItem>WOMEN CLOTHING</MenuItem>
-            <MenuItem>MEN CLOTHING</MenuItem>
-            <MenuItem>SHOES</MenuItem>
-            <MenuItem>KIDS</MenuItem>
-            <MenuItem>BRANDS</MenuItem>
-            <MenuItem>CHARITIES</MenuItem>
-            <MenuItem>OTHER</MenuItem>
+            <MenuItem containerElement={<Link to ="/" />}>Home</MenuItem>
+            <MenuItem containerElement={<Link to ="/product" />}>Products</MenuItem>
+            <MenuItem containerElement={<Link to ="/register" />}>Register</MenuItem>
+            <MenuItem containerElement={<Link to ="/signin" />}>Signin</MenuItem>
+            <MenuItem containerElement={<Link to ="/profile" />}>Profile</MenuItem>
+            <MenuItem>Charities</MenuItem>
+            <MenuItem containerElement={<Link to ="/checkout" />}>Checkout</MenuItem>
+            <MenuItem>About Us</MenuItem>
+
           </Drawer>
           <AppBar
             title="Closet Share"
             onLeftIconButtonTouchTap={ () => this.props.onToggle()}
           />
         </div>
-
-
-      </MuiThemeProvider>
     );
   }
 }
