@@ -12,11 +12,11 @@ class Play extends Component {
       username: '',
       items: [],
       user: null // <-- add this line
-    }    
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.login = this.login.bind(this); 
-    this.logout = this.logout.bind(this); 
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -29,7 +29,7 @@ class Play extends Component {
     const item = {
     title: this.state.currentItem,
     user: this.state.user.displayName || this.state.user.email
-    }
+  };
     itemsRef.push(item);
     this.setState({
       currentItem: '',
@@ -46,7 +46,7 @@ class Play extends Component {
     });
 }
   login() {
-  auth.signInWithPopup(provider) 
+  auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
       this.setState({
@@ -58,7 +58,7 @@ class Play extends Component {
     auth.onAuthStateChanged((user) => {
       if (user) {
       this.setState({ user });
-    } 
+    }
   });
     const itemsRef = firebase.database().ref('items');
     itemsRef.on('value', (snapshot) => {
@@ -97,9 +97,9 @@ class Play extends Component {
       <div className="wrapper">
       <h1>Closet Share</h1>
       {this.state.user ?
-        <button onClick={this.logout}>Logout</button>                
+        <button onClick={this.logout}>Logout</button>
         :
-        <button onClick={this.login}>Log In</button>              
+        <button onClick={this.login}>Log In</button>
       }
       </div>
     </header>
@@ -128,7 +128,7 @@ class Play extends Component {
 </div>
       );
    }
-    
-  
+
+
 }
 export default Play;

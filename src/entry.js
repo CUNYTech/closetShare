@@ -14,9 +14,9 @@ const Entry = (props) => {
             	<Route exact path="/" component={ Play } />
             	<Route exact path="/home" component={ Home } />
             	<Route exact path="/checkout" component={Checkout} />
-                <Route exact path="/photos" component={Photo} />
+              <Route exact path="/photos" component={Photo} />
             </Switch>
-        <Footer /> 
+        <Footer />
         </div>
   );
 };
