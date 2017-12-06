@@ -80,6 +80,12 @@ class Play extends Component {
     const itemRef = firebase.database().ref(`/items/${itemId}`);
     itemRef.remove();
   }
+
+  addCart(itemId){
+    const cartRef = firebase.database().ref(`/cart`);
+    cartRef.push(itemId);
+    window.alert('added to cart');
+  }
   render() {
     let item_s = this.state.items.map((item) => {
                     return (
@@ -87,6 +93,7 @@ class Play extends Component {
                         <h3>{item.title}</h3>
                         <p>brought by: {item.user}
                           <button className='remove-button' onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                          <button className='add-to-cart' onClick={() => this.addCart(item.id)}>Add to Cart</button>
                         </p>
                       </li>
                     );

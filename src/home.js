@@ -7,7 +7,7 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 const Home = () => {
   return (
     <div className='home'>
-   
+
 	<header>
 		<h2><a href="#">Make a Logo</a></h2>
 		<nav>
@@ -23,7 +23,7 @@ const Home = () => {
 		<div className="background-image"></div>
 		<h1>Closet Share</h1>
 		<h3>Charity Market Place</h3>
-		<a href="" class="btn">Donate Here</a>
+		<a href="" className="btn">Donate Here</a>
 	</section>
 
 
@@ -39,7 +39,7 @@ const Home = () => {
 			<li className="small"></li>
 		</ul>
 	</section>
-	
+
 
 	<section className="features">
 		<h3 className="title">Features and services</h3>
@@ -78,12 +78,12 @@ const Home = () => {
 		<p className="quote">Donec commodo dolor augue, vitae faucibus tortor tincidunt in. Aliquam vitae leo quis mi pulvinar ornare. Integer eu iaculis metus.</p>
 		<p className="author">— Kevin Blake</p>
 
-		
+
 	</section>
 
 
 	<section className="contact">
-		<h3 className="title">Join our newsletter</h3>	
+		<h3 className="title">Join our newsletter</h3>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
 
 		<form>
