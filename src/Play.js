@@ -82,9 +82,12 @@ class Play extends Component {
   }
 
   addCart(itemId){
-    debugger
+    //create ref or get that location in firebase
     const cartRef = firebase.database().ref(`/cart/${this.state.user.displayName}`);
+    //push item ID(going to have to iterate through cart getting item IDs
+    // and then getting them from items json object and displaying information)
     cartRef.push(itemId);
+    //tell user its been added to cart
     window.alert('added to cart');
   }
   render() {
@@ -98,7 +101,7 @@ class Play extends Component {
                         </p>
                       </li>
                     );
-                  })
+                  });
   return (
   <div className='app'>
     <header>
