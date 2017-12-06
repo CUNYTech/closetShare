@@ -82,7 +82,8 @@ class Play extends Component {
   }
 
   addCart(itemId){
-    const cartRef = firebase.database().ref(`/cart`);
+    debugger
+    const cartRef = firebase.database().ref(`/cart/${this.state.user.displayName}`);
     cartRef.push(itemId);
     window.alert('added to cart');
   }
