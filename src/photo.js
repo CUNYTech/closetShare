@@ -48,7 +48,7 @@ class Photo extends Component {
             if (user) {
               const itemsRef = firebase.database().ref('items');
               const item = {
-                image: user.displayName,
+                image: url,
                 user: user.email
               };
                 itemsRef.push(item);
