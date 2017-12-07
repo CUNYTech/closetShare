@@ -154,6 +154,30 @@ form button {
 }
 
 button {
+<<<<<<< HEAD
+  border-radius: 2px;
+  min-width: 88px;
+  background-color: #FA6900;
+  cursor: pointer;
+  border: 0;
+  min-width: 120px;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  padding: 10px 6px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+  margin-bottom: 10%;
+
+}
+
+header {
+  color: #fff;
+  background-color: #103D5D;
+  padding: 33px 0 25px 15px;
     border-radius: 2px;
     min-width: 88px;
     background-color: #FA6900;
@@ -164,6 +188,7 @@ button {
     font-size: 14px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     padding: 10px 6px;
+
 }
 
 header p {
@@ -215,6 +240,41 @@ header .wrapper {
     position: fixed;
 }
 
+
+.user-profile img {
+  border-radius: 50%;
+  max-width: 100%;
+}
+
+.photo {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-left: 35%;
+}
+
+#uploader {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.footer{
+  background-color: #333;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.remove-button {
+  margin-left: 10px;
+}
 
 .fl-left {float: left;}
 .margin-2rem {margin: 2rem;}

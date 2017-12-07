@@ -4,11 +4,6 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase.js';
 import '../App.css';
 
-// Material-ui theme
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-
 // Material-ui for Card
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
