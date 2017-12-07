@@ -3,9 +3,6 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase.js';
 import '../App.css';
 
-// Material-ui theme
-import NavBar from '../profile_pages/navBar';
-
 //For Table Material-ui
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -72,28 +69,9 @@ function BasicTable(props) {
 }
 
 class Charity extends Component {
-  constructor() {
-    super()
-    this.state = {
-      open: false
-    }
-  }
-
-  //For nav
-  handleToggle() {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
   render() {
    return (
       <div>
-        <NavBar
-          onToggle={() => this.handleToggle()}
-          open={this.state.open}
-        />
-
         {<BasicTable classes={styles({spacing: {unit:1}})}/>}
       </div>
     );
