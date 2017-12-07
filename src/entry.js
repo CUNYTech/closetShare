@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import Home from './home';
-import Checkout from './checkout';
+import Checkout from './Checkout/checkout';
 import Photo from './photo';
 import Register from './register';
 import Footer from './footer';
