@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import Entry from '../entry';
 import firebase, { auth, provider } from '../firebase.js';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 
@@ -15,7 +17,6 @@ class Product extends Component {
       description: '',
       price:'',
       products: [],
-      test: 'hello world',
       user: null // <-- add this line
     }    
     this.removeItem = this.removeItem.bind(this);
@@ -27,6 +28,8 @@ class Product extends Component {
     } 
   });
     const productsRef = firebase.database().ref('products');
+    const imageRef = firebase.storage().ref('images');
+    // debugger;
     productsRef.on('value', (snapshot) => {
       let products = snapshot.val();
       let newState = [];
@@ -48,23 +51,41 @@ class Product extends Component {
     productRef.remove();
   }
   render(){
-    debugger;
     let prod_s = this.state.products.map(function(prod){
       return(
-        <li key={prod.id}>
-        <h3>{prod.productTitle}</h3>
-        <p>Image Here</p>
-        <p>Price: {prod.price}</p>
-        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>details</Link>
-      </li>
+        <div className="col-md-3" key={prod.id}>
+        <Card >
+        <CardMedia
+          overlay={<CardTitle title={prod.productTitle} />}
+        >
+          <img src="images/nature-600-337.jpg" alt="" />
+        </CardMedia>
+        <CardTitle>
+        {prod.productTitle}
+        </CardTitle>
+        <CardText>
+        {prod.price}
+        </CardText>
+        <CardActions>
+        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}}><FlatButton label="Details" /></Link>
+          
+        </CardActions>
+      </Card>
+      <br/><br/><br/><br/><br/><br/><br/>
+      </div>
       );
     });
     return (
-      <div>
-        <h1>
-          Product page
-          <br/><Link to={`/product/create/${this.state.test}`} style={{color: 'black'}} activeStyle={{color: 'red'}}>Create a product</Link>
-        </h1>
+      <div className="container-fluid">
+        <div className="page-header">
+          <h1>
+            Product page
+            <br/>
+         </h1>
+         <h3>
+         <Link to={`/product/create`} style={{color: 'black'}}>Create a product</Link>
+         <br/><br/><br/></h3>
+        </div>
         <ul>{prod_s}</ul>
       </div>
     );

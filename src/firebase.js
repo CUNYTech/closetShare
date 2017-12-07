@@ -6,7 +6,7 @@ import firebase from 'firebase';
     authDomain: "closet-share.firebaseapp.com",
     databaseURL: "https://closet-share.firebaseio.com",
     projectId: "closet-share",
-    storageBucket: "",
+    storageBucket: "gs://closet-share.appspot.com",
     messagingSenderId: "275441314287"
   };
   firebase.initializeApp(config);

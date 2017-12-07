@@ -18,7 +18,7 @@ const Entry = (props) => {
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/product" component={Product} />
-            <Route exact path="/product/create/:id" component={ProductCreate} />
+            <Route exact path="/product/create" component={ProductCreate} />
             <Route exact path="/product/productdetail/:id" component={ProductDetail} />
         </div>
   );

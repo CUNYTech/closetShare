@@ -6,17 +6,9 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 const Home = () => {
   return (
     <div className='home'>
-  
-
-   <Link to="/checkout" style={{color: 'black'}} >Checkout</Link>
-   <br />
-   <Link to="/register" style={{color: 'black'}} >Register</Link>
-   <br />
-   <Link to="/signin" style={{color: 'black'}} >Sign in</Link>
-   <br />
-   <Link to="/profile" style={{color: 'black'}} >Profile</Link>
-   <br />
-   <Link to="/product" style={{color: 'black'}} activeStyle={{color: 'red'}}>Product</Link>
+      <h2>
+        This is Home Navigation is now on The app bar
+      </h2>
   </div>
   );
 };
