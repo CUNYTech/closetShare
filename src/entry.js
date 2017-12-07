@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import Home from './home';
 import Checkout from './checkout';
-import Photo from './Photos'
+import Photo from './photo';
 import Register from './register';
+import Footer from './footer';
 import Signin from './signin';
 import Profile from './profile_pages/profile';
 import Product from './Product_Pages/product';

@@ -178,7 +178,6 @@ header {
   color: #fff;
   background-color: #103D5D;
   padding: 33px 0 25px 15px;
-=======
     border-radius: 2px;
     min-width: 88px;
     background-color: #FA6900;
@@ -189,7 +188,7 @@ header {
     font-size: 14px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     padding: 10px 6px;
->>>>>>> master
+
 }
 
 header p {
@@ -242,7 +241,6 @@ header .wrapper {
 }
 
 
-<<<<<<< HEAD
 .user-profile img {
   border-radius: 50%;
   max-width: 100%;
@@ -277,10 +275,9 @@ header .wrapper {
 .remove-button {
   margin-left: 10px;
 }
-=======
+
 .fl-left {float: left;}
 .margin-2rem {margin: 2rem;}
 .margin-b-5rem {margin-bottom: 5rem;}
 .padding-2rem {padding: 2rem;}
 .flow-root {display: flow-root;}
->>>>>>> master
