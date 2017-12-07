@@ -8,7 +8,7 @@ import MyStoreCheckout from './MyStoreCheckout';
 class Checkout extends React.Component {
   render() {
     return (
-      <StripeProvider apiKey="pk_test_12345">
+      <StripeProvider apiKey="pk_test_dfQBmg41nVrDIbVWJcDctViP">
       <div>
       <MyStoreCheckout />
       </div>
