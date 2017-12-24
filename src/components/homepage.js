@@ -8,7 +8,7 @@ return(
 
 <div className = 'homepage'>
    <div className= "vertical-menu">
-     <a href ="#/products" className="active"> PRODUCTS</a>
+     <a href ="#/product" className="active"> PRODUCTS</a>
      <a href ="#"> WOMEN CLOTHING</a>
      <a href="#"> MEN CLOTHING </a>
      <a href="#"> SHOES</a>
