@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import { Route, Redirect, Switch,HashRouter} from 'react-router-dom';

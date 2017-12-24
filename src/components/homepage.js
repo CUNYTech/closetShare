@@ -5,6 +5,7 @@ import {Link} from 'react-router';
 class Homepage extends React.Component{
 render(){
 return(
+
 <div className = 'homepage'>
    <div className= "vertical-menu">
      <a href ="#/products" className="active"> PRODUCTS</a>
@@ -20,7 +21,7 @@ return(
     
 </div>
     );
-   }
+ }
 }
 
 

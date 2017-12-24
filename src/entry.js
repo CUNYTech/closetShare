@@ -13,6 +13,7 @@ const Entry = (props) => {
     return (
         <div>
             <Route exact path="/" component={ AppR } />
+
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
