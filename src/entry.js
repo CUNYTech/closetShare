@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
-import App from './components/App';
+import AppR from './components/AppR';
 import Checkout from './checkout';
 import Register from './register';
 import Signin from './signin';
@@ -12,7 +12,7 @@ import ProductDetail from './Product_Pages/productdetail';
 const Entry = (props) => {
     return (
         <div>
-            <Route exact path="/" component={ App } />
+            <Route exact path="/" component={ AppR } />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
