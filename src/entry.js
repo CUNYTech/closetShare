@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
-import Checkout from './checkout';
 import Home from './home';
 import Checkout from './Checkout/checkout';
 import Photo from './photo';
@@ -11,12 +10,13 @@ import Profile from './profile_pages/profile';
 import Product from './Product_Pages/product';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
+import AppR from './Homepage/AppR';
 
 const Entry = (props) => {
     return (
         <div>
         	<Switch>
-            <Route exact path="/" component={ Home } />
+            <Route exact path="/" component={ AppR } />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
