@@ -8,10 +8,10 @@ import Footer from './footer';
 import Homepage from './homepage';
 
 
-class AppR extends Component {
+class Main extends Component {
 render(){
 return(
-     <div className = "app">
+     <div className = "main">
      
      <Header/>
      <Cover/>
@@ -23,6 +23,6 @@ return(
      );
    }
 }
-export default AppR
+export default Main
 
 

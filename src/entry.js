@@ -10,13 +10,13 @@ import Profile from './profile_pages/profile';
 import Product from './Product_Pages/product';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
-import AppR from './Homepage/AppR';
+import Main from './Homepage/main';
 
 const Entry = (props) => {
     return (
         <div>
         	<Switch>
-            <Route exact path="/" component={ AppR } />
+            <Route exact path="/" component={ Main } />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
