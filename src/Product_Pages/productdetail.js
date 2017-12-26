@@ -52,7 +52,8 @@ class ProductDetail extends Component {
         if(confirm){
             const productsRef = firebase.database().ref(`/products/${this.state.product_id}`);
             productsRef.remove();
-            alert("Deleted");
+            alert("deleted");
+            this.props.history.replace('/#');
         }else{
             alert("Canceled");
         }

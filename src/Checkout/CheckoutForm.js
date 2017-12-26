@@ -13,6 +13,7 @@ class CheckoutForm extends React.Component {
 
     // Within the context of `Elements`, this call to createToken knows which Element to
     // tokenize, since there's only one in this group.
+    debugger;
     this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
       console.log('Received Stripe token:', token);
     });

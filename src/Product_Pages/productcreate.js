@@ -12,7 +12,8 @@ class ProductCreate extends Component {
           user_id: '',
           user_name:'',
           products: [],
-          user: null // <-- add this line
+          user: null, // <-- add this line
+          image: null
         }    
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,12 +26,31 @@ class ProductCreate extends Component {
       handleSubmit(e) {
         e.preventDefault();
         const productsRef = firebase.database().ref('products');
+        var file = e.target[3].files[0];
+        var storageRef = firebase.storage().ref('images/' + file.name);
+        var task = storageRef.put(file);
+        task.on('state_changed',
+          function complete(){
+            //remember to invoke
+            var downloadURL = storageRef.getDownloadURL().then(function(url) {
+              //push to firebase items write to database
+              auth.onAuthStateChanged((user) => {
+                if (user) {
+                  this.setState({
+                    image: url
+                  });
+                  }
+              });
+            });
+          }
+        );
         const product = {
         productTitle: this.state.productTitle,
         description: this.state.description,
         price: this.state.price,
         user_id: this.state.user.uid,
-        user_name: this.state.user.displayName
+        user_name: this.state.user.displayName,
+        image: this.state.image
         }
         productsRef.push(product);
         this.setState({
@@ -38,7 +58,8 @@ class ProductCreate extends Component {
           description: '',
           price: '',
           user_id: '',
-          user_name: ''
+          user_name: '',
+          image: null
         });
       }
     
@@ -91,7 +112,7 @@ render(){
         </div>
             <div className="form-group">
                 <label for="Images">Product Image</label>
-                <input type="file" name="images" id="images"/>
+                <input type="file" name="images" id="images" onChange={this.handleChange} value={this.state.image}/>
                 <p className="help-block">Upload product images here in order of appearance</p>
             </div>
             <button type="submit" className="btn btn-default">Submit</button>
