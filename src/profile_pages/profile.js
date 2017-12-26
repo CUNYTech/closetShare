@@ -75,7 +75,7 @@ class Profile extends Component {
                 <MenuItem primaryText="Donations" value='4'/>
                 <MenuItem primaryText="Profile" value='5'/>
                 <MenuItem primaryText="Settings" value='6'/>
-                <MenuItem primaryText="Log out" value='7' containerElement={<Link to="../Checkout" />} />
+                <MenuItem primaryText="Log out" value='7' containerElement={<Link to="../CheckOut" />} />
               </Menu>
             </Paper>
           </div>

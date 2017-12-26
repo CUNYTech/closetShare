@@ -1,5 +1,139 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    background-color: white;
+    height: auto;
+    width:100%;
+    overflow: scroll;
 }
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    
+}
+
+.navbar a {
+    float: right;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+input[type=text] {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  width: 350px;
+  padding: 6px;
+  margin-top: 8px;
+  margin-left: 16px;
+  padding: 12px 20px 12px 40px;
+  background-color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  left: 10%;
+  position: relative;
+}
+
+
+.vertical-menu{
+width: 15%;
+height: 100%;
+overflow: auto;
+position: absolute;
+
+}
+
+.vertical-menu a{
+background-color: #eee;
+color:black;
+display: block;
+padding: 12px;
+text-decoration: none;
+}
+.vertical-menu a:hover{
+background-color: #ccc;
+
+}
+.vertical-menu a.active{
+background-color: #4C4F50;
+color: white;
+}
+
+.jumbotron{
+text-align: center;
+background-color: pink;
+height: 200px;
+top: 0px;
+position: relative;
+}
+.bg{
+background-size:cover;
+background-position:left;
+background-repeat: no-repeat;
+}
+
+.dropdown-menu a:hover{
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: pink;
+  height: 150px;
+ 
+}
+
+
+
+
