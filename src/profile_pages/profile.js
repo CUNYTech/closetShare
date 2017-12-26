@@ -4,11 +4,6 @@ import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import firebase, { auth, provider } from '../firebase.js';
 import '../App.css';
 
-// Material-ui theme
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NavBar from './navBar';
-
 // Material-ui for Card
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -65,11 +60,6 @@ class Profile extends Component {
     console.log(this.state.fname);
     return (
       <div>
-        <MuiThemeProvider>
-        <NavBar
-          onToggle={() => this.handleToggle()}
-          open={this.state.open}
-        />
 
         
           <div className="fl-left margin-2rem">
@@ -98,7 +88,6 @@ class Profile extends Component {
               <p>E-mail: {this.state.email}</p>
             </Paper>
           </div>
-        </MuiThemeProvider>
       </div>
     );
   }

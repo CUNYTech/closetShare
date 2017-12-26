@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from '../firebase.js';
+import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 class ProductCreate extends Component {
     constructor(props) {
@@ -24,7 +25,6 @@ class ProductCreate extends Component {
       handleSubmit(e) {
         e.preventDefault();
         const productsRef = firebase.database().ref('products');
-        debugger;
         const product = {
         productTitle: this.state.productTitle,
         description: this.state.description,
@@ -53,7 +53,6 @@ class ProductCreate extends Component {
         productsRef.on('value', (snapshot) => {
           let products = snapshot.val();
           let newState = [];
-          debugger;
           for (let product in products) {
             newState.push({
               id: product,
@@ -71,8 +70,6 @@ class ProductCreate extends Component {
       }
 
 render(){
-  console.log(this.props);
-    debugger;
     return (
     <div className="Main">
       <h1>
@@ -80,24 +77,24 @@ render(){
       </h1>
       <div>
         <form onSubmit={this.handleSubmit}>
-            <div class="form-group">
+            <div className="form-group">
                 <label for="productTitle">Product Title</label>
-                <input type="text" name="productTitle" class="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleChange} value={this.state.productTitle}/>
+                <input type="text" name="productTitle" className="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleChange} value={this.state.productTitle}/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <label for="description">Description</label>
-                <input type="text" name="description" class="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
+                <input type="text" name="description" className="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
             <label for="price">Price</label>
-            <input type="text" name="price" class="form-control" id="Price" placeholder="Price" onChange={this.handleChange} value={this.state.price}/>
+            <input type="text" name="price" className="form-control" id="Price" placeholder="Price" onChange={this.handleChange} value={this.state.price}/>
         </div>
-            <div class="form-group">
+            <div className="form-group">
                 <label for="Images">Product Image</label>
                 <input type="file" name="images" id="images"/>
-                <p class="help-block">Upload product images here in order of appearance</p>
+                <p className="help-block">Upload product images here in order of appearance</p>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" className="btn btn-default">Submit</button>
         </form>
       </div>
     </div>
