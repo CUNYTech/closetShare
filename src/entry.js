@@ -10,6 +10,7 @@ import Product from './Product_Pages/product';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
 import Main from './Homepage/main';
+import About from './about';
 
 const Entry = (props) => {
     return (
@@ -24,6 +25,7 @@ const Entry = (props) => {
             <Route exact path="/product/create" component={ProductCreate} />
             <Route exact path="/product/productdetail/:id" component={ProductDetail} />
             <Route exact path="/photos" component={Photo} />
+            <Route exact path="/aboutus" component={About} />
             </Switch>
         <Footer />
 
