@@ -4,82 +4,68 @@ import firebase, { auth, provider } from '../firebase.js';
 import '../App.css';
 
 //For Table Material-ui
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
-});
-
-let id = 0;
-function createData(name, calories, fat, carbs, protein) {
-  id += 1;
-  return { id, name, calories, fat, carbs, protein };
-}
-
-const data = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-function BasicTable(props) {
-  const { classes } = props;
-
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell numeric>Calories</TableCell>
-            <TableCell numeric>Fat (g)</TableCell>
-            <TableCell numeric>Carbs (g)</TableCell>
-            <TableCell numeric>Protein (g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map(n => {
-            return (
-              <TableRow key={n.id}>
-                <TableCell>{n.name}</TableCell>
-                <TableCell numeric>{n.calories}</TableCell>
-                <TableCell numeric>{n.fat}</TableCell>
-                <TableCell numeric>{n.carbs}</TableCell>
-                <TableCell numeric>{n.protein}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </Paper>
-  );
-}
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 class Charity extends Component {
   render() {
    return (
-      <div>
-        {<BasicTable classes={styles({spacing: {unit:1}})}/>}
-      </div>
+    <div>
+        <div>
+          Google Search bar
+        </div>
+        <h3>America's Top 50 charities</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderColumn>Rank in U.S</TableHeaderColumn>
+              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>Website</TableHeaderColumn>
+              <TableHeaderColumn>Category</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableRowColumn>1</TableRowColumn>
+              <TableRowColumn>YMCA of the USA</TableRowColumn>
+              <TableRowColumn><a href="http://www.ymca.net" target="_blank">ymca.net</a></TableRowColumn>
+              <TableRowColumn>Social services</TableRowColumn>
+            </TableRow>
+            <TableRow>
+              <TableRowColumn>2</TableRowColumn>
+              <TableRowColumn>Goodwill Industries International</TableRowColumn>
+              <TableRowColumn><a href="http://www.goodwill.org/" target="_blank">goodwill.org</a></TableRowColumn>
+              <TableRowColumn>Social services</TableRowColumn>
+            </TableRow>
+            <TableRow>
+              <TableRowColumn>3</TableRowColumn>
+              <TableRowColumn>Catholic Charities USA</TableRowColumn>
+              <TableRowColumn><a href="https://catholiccharitiesusa.org/" target="_blank">catholiccharities.usa.org</a></TableRowColumn>
+              <TableRowColumn>Social services</TableRowColumn>
+            </TableRow>
+            <TableRow>
+              <TableRowColumn>4</TableRowColumn>
+              <TableRowColumn>United Way</TableRowColumn>
+              <TableRowColumn><a href="https://www.unitedway.org/" target="_blank">unitedway.org</a></TableRowColumn>
+              <TableRowColumn>Social services</TableRowColumn>
+            </TableRow>
+            <TableRow>
+              <TableRowColumn>5</TableRowColumn>
+              <TableRowColumn>American Red Cross</TableRowColumn>
+              <TableRowColumn><a href="http://www.redcross.org/" target="_blank">redcross.org</a></TableRowColumn>
+              <TableRowColumn>Social services</TableRowColumn>
+            </TableRow>
+          </TableBody>
+        </Table>
+        </div>
     );
   }
 }
-
-BasicTable.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default Charity;

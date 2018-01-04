@@ -66,7 +66,7 @@ class NavBar extends Component {
             <MenuItem containerElement={<Link to ="/register" />}>Register</MenuItem>
             <MenuItem containerElement={<Link to ="/signin" />}>Signin</MenuItem>
             <MenuItem containerElement={<Link to ="/profile" />}>Profile</MenuItem>
-            <MenuItem>Charities</MenuItem>
+            <MenuItem containerElement={<Link to ="/charity" />}>Charities</MenuItem>
             <MenuItem containerElement={<Link to ="/checkout" />}>Checkout</MenuItem>
             <MenuItem containerElement={<Link to ="/aboutus" />}>About Us</MenuItem>
 

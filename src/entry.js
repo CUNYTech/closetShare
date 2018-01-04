@@ -7,6 +7,7 @@ import Footer from './footer';
 import Signin from './signin';
 import Profile from './profile_pages/profile';
 import Product from './Product_Pages/product';
+import Charity from './Charity_pages/charity';
 import ProductCreate from './Product_Pages/productcreate';
 import ProductDetail from './Product_Pages/productdetail';
 import Main from './Homepage/main';
@@ -21,6 +22,7 @@ const Entry = (props) => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/charity" component={Charity} />
             <Route exact path="/product" component={Product} />
             <Route exact path="/product/create" component={ProductCreate} />
             <Route exact path="/product/productdetail/:id" component={ProductDetail} />
