@@ -12,16 +12,43 @@ class ProductCreate extends Component {
           user_id: '',
           user_name:'',
           products: [],
-          user: null // <-- add this line
+          user: null, // <-- add this line
+          image: ''
         }    
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
       }
-      handleChange(e) {
+
+      handleInput(e) {
         this.setState({
           [e.target.name]: e.target.value
         });
       }
+
+      handleChange(e) {
+        var file = e.target.files[0];
+        var storageRef = firebase.storage().ref('images');
+        var task = storageRef.put(file);
+        var state = this.state;
+        
+        task.on('state_changed',
+          function complete(){
+            //remember to invoke
+            var downloadURL = storageRef.getDownloadURL().then(function(url) {
+              console.log(url);
+              //push to firebase items write to database
+              auth.onAuthStateChanged((user) => {
+                if (user) {
+                  debugger;
+                  state.image = url;
+                  }
+              });
+            });
+          }
+        );
+      }
+    
       handleSubmit(e) {
         e.preventDefault();
         const productsRef = firebase.database().ref('products');
@@ -30,7 +57,8 @@ class ProductCreate extends Component {
         description: this.state.description,
         price: this.state.price,
         user_id: this.state.user.uid,
-        user_name: this.state.user.displayName
+        user_name: this.state.user.displayName,
+        image: this.state.image
         }
         productsRef.push(product);
         this.setState({
@@ -38,7 +66,8 @@ class ProductCreate extends Component {
           description: '',
           price: '',
           user_id: '',
-          user_name: ''
+          user_name: '',
+          image: ''
         });
       }
     
@@ -79,20 +108,19 @@ render(){
         <form onSubmit={this.handleSubmit}>
             <div className="form-group">
                 <label for="productTitle">Product Title</label>
-                <input type="text" name="productTitle" className="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleChange} value={this.state.productTitle}/>
+                <input type="text" name="productTitle" className="form-control" id="productTitle" placeholder="Product Title" onChange={this.handleInput} value={this.state.productTitle}/>
             </div>
             <div className="form-group">
                 <label for="description">Description</label>
-                <input type="text" name="description" className="form-control" id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description}/>
+                <input type="text" name="description" className="form-control" id="description" placeholder="Description" onChange={this.handleInput} value={this.state.description}/>
             </div>
             <div className="form-group">
             <label for="price">Price</label>
-            <input type="text" name="price" className="form-control" id="Price" placeholder="Price" onChange={this.handleChange} value={this.state.price}/>
+            <input type="text" name="price" className="form-control" id="Price" placeholder="Price" onChange={this.handleInput} value={this.state.price}/>
         </div>
             <div className="form-group">
                 <label for="Images">Product Image</label>
-                <input type="file" name="images" id="images"/>
-                <p className="help-block">Upload product images here in order of appearance</p>
+                <input type="file" name="images" id="images" onChange={this.handleChange} value={this.state.image}/>
             </div>
             <button type="submit" className="btn btn-default">Submit</button>
         </form>

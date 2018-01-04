@@ -5,9 +5,6 @@ import './App.css';
 import firebase, { auth, provider } from './firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
-
-
-
 class NavBar extends Component {
   constructor() {
     super();
@@ -68,7 +65,7 @@ class NavBar extends Component {
             <MenuItem containerElement={<Link to ="/profile" />}>Profile</MenuItem>
             <MenuItem containerElement={<Link to ="/charity" />}>Charities</MenuItem>
             <MenuItem containerElement={<Link to ="/checkout" />}>Checkout</MenuItem>
-            <MenuItem containerElement={<Link to ="/aboutus" />}>About Us</MenuItem>
+            <MenuItem>About Us</MenuItem>
 
           </Drawer>
           <AppBar
