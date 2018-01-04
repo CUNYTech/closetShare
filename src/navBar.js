@@ -65,7 +65,7 @@ class NavBar extends Component {
             <MenuItem containerElement={<Link to ="/profile" />}>Profile</MenuItem>
             <MenuItem containerElement={<Link to ="/charity" />}>Charities</MenuItem>
             <MenuItem containerElement={<Link to ="/checkout" />}>Checkout</MenuItem>
-            <MenuItem>About Us</MenuItem>
+            <MenuItem containerElement={<Link to ="/aboutus" />}>About Us</MenuItem>
 
           </Drawer>
           <AppBar
