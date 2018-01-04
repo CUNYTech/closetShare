@@ -5,9 +5,6 @@ import './App.css';
 import firebase, { auth, provider } from './firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
-
-
-
 class NavBar extends Component {
   constructor() {
     super();

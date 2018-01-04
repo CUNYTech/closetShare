@@ -6,6 +6,10 @@ import Entry from '../entry';
 import firebase, { auth, provider } from '../firebase.js';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 
@@ -17,10 +21,13 @@ class Product extends Component {
       description: '',
       price:'',
       products: [],
-      user: null // <-- add this line
+      user: null, // <-- add this line
+      image:''
     }    
     this.removeItem = this.removeItem.bind(this);
+    
   }
+  
   componentDidMount() {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -38,7 +45,8 @@ class Product extends Component {
           id: product,
           productTitle: products[product].productTitle,
           description: products[product].description,
-          price: products[product].price
+          price: products[product].price,
+          image: products[product].image
         });
       }
       this.setState({
@@ -51,28 +59,28 @@ class Product extends Component {
     productRef.remove();
   }
   render(){
+    const styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      },
+      gridList: {
+        width: 500,
+        height: 450,
+        overflowY: 'auto',
+      },
+    }
     let prod_s = this.state.products.map(function(prod){
       return(
-        <div className="col-md-3" key={prod.id}>
-        <Card >
-        <CardMedia
-          overlay={<CardTitle title={prod.productTitle} />}
-        >
-          <img src="images/nature-600-337.jpg" alt="" />
-        </CardMedia>
-        <CardTitle>
-        {prod.productTitle}
-        </CardTitle>
-        <CardText>
-        {prod.price}
-        </CardText>
-        <CardActions>
-        <Link to={`/product/productdetail/${prod.id}`} style={{color: 'black'}}><FlatButton label="Details" /></Link>
-          
-        </CardActions>
-      </Card>
-      <br/><br/><br/><br/><br/><br/><br/>
-      </div>
+        <GridTile
+        key={prod.id}
+        title={prod.productTitle}
+        subtitle={<span>Price <b>{prod.price}</b></span>}
+        containerElement={<Link to ={`/product/productdetail/${prod.id}`}/>}
+      >
+        <img src={prod.image} />
+      </GridTile>
       );
     });
     return (
@@ -86,7 +94,17 @@ class Product extends Component {
          <Link to={`/product/create`} style={{color: 'black'}}>Create a product</Link>
          <br/><br/><br/></h3>
         </div>
-        <ul>{prod_s}</ul>
+
+        <div style={styles.root}>
+        <GridList
+          cellHeight={180}
+          style={styles.gridList}
+        >
+          <Subheader>Products</Subheader>
+          {prod_s}
+        </GridList>
+      </div>
+
       </div>
     );
   }

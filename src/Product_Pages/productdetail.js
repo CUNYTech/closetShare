@@ -19,7 +19,8 @@ class ProductDetail extends Component {
             user_name:'',
             product: {},
             user: null, // <-- add this line
-            product_id: this.props.match.params.id
+            product_id: this.props.match.params.id,
+            image: ''
           }  
     this.check_button = this.check_button.bind(this); 
     this.delete_record = this.delete_record.bind(this);
@@ -42,7 +43,8 @@ class ProductDetail extends Component {
              description: snapshot.val().description,
              price: snapshot.val().price,
              user_id: snapshot.val().user_id,
-             user_name:snapshot.val().user_name
+             user_name: snapshot.val().user_name,
+             image: snapshot.val().image
          }) 
         });
       }
@@ -148,7 +150,7 @@ class ProductDetail extends Component {
                     <CardMedia
                       overlay={<CardTitle title={this.state.product.productTitle} />}
                     >
-                      <img src="images/nature-600-337.jpg" alt="" />
+                      <img src={this.state.product.image} alt="" />
                     </CardMedia>
                     <CardTitle>
                     {this.state.product.productTitle}
