@@ -7,9 +7,9 @@ class CardSection extends React.Component {
     return (
         <div>
         <CardElement />
-        </div> 
+        </div>
     );
   }
-};
+}
 
 export default CardSection;
