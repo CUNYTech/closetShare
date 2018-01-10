@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 import { Route, Redirect, Switch,HashRouter} from 'react-router-dom';
 import Cover from './cover';
 import Homepage from './homepage';
+import './main.css';
 
 
 class Main extends Component {

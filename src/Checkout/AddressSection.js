@@ -23,12 +23,7 @@ class AddressSection extends React.Component {
         floatingLabelText="Address Line 2"
         fullWidth={true}
         /><br />
-        <TextField
-          hintText="Password Field"
-          floatingLabelText="Password"
-          type="password"
-          fullWidth={true}
-        /><br /><br />
+        <br /><br />
       </div>
     );
   }

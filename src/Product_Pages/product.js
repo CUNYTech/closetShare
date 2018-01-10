@@ -65,8 +65,8 @@ class Product extends Component {
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 700,
-        height: 450,
+        width: 750,
+        height: 500,
         overflowY: 'auto',
       },
     }

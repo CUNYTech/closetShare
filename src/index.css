@@ -105,13 +105,7 @@ background-color: #4C4F50;
 color: white;
 }
 
-.jumbotron{
-text-align: center;
-background-color: pink;
-height: 200px;
-top: 0px;
-position: relative;
-}
+
 .bg{
 background-size:cover;
 background-position:left;
@@ -130,7 +124,7 @@ background-repeat: no-repeat;
 .jumbotron {
   margin-bottom: 0;
   background-color: pink;
-  height: 150px;
+  height: 10%;
  
 }
 

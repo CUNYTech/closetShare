@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Entry from '../entry';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+import '../Homepage/main.css';
 
 class ProductDetail extends Component {
     constructor(props){
@@ -142,11 +143,11 @@ class ProductDetail extends Component {
         
         return(
         <div>
-            <div className="col-md-9" >
+            <div className="main">
                 <h2>Product Details</h2>
             </div>
             <br/><br/><br/><br/><br/><br/><br/>
-                <div className="col-md-9">
+                <div className="main">
                     <Card >
                     <CardMedia
                       overlay={<CardTitle title={this.state.product.productTitle} />}
