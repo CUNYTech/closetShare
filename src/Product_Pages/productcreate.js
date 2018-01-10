@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase, { auth, provider } from '../firebase.js';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
+
 class ProductCreate extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +29,7 @@ class ProductCreate extends Component {
 
       handleChange(e) {
         var file = e.target.files[0];
-        var storageRef = firebase.storage().ref('images');
+        var storageRef = firebase.storage().ref('images/' + file.name);
         var task = storageRef.put(file);
         var state = this.state;
         
@@ -40,7 +41,6 @@ class ProductCreate extends Component {
               //push to firebase items write to database
               auth.onAuthStateChanged((user) => {
                 if (user) {
-                  debugger;
                   state.image = url;
                   }
               });
@@ -60,15 +60,10 @@ class ProductCreate extends Component {
         user_name: this.state.user.displayName,
         image: this.state.image
         }
-        productsRef.push(product);
-        this.setState({
-          productTitle: '',
-          description: '',
-          price: '',
-          user_id: '',
-          user_name: '',
-          image: ''
+        productsRef.push(product).then(() =>{ 
+          this.props.history.push('/product')
         });
+       
       }
     
       componentDidMount() {

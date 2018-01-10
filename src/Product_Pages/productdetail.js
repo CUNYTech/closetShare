@@ -55,7 +55,7 @@ class ProductDetail extends Component {
             const productsRef = firebase.database().ref(`/products/${this.state.product_id}`);
             productsRef.remove();
             alert("deleted");
-            this.props.history.replace('/#');
+            this.props.history.push('/#');
         }else{
             alert("Canceled");
         }
@@ -83,7 +83,8 @@ class ProductDetail extends Component {
           description: this.state.description,
           price: this.state.price,
           user_id: this.state.user_id,
-          user_name: this.state.user_name
+          user_name: this.state.user_name,
+          image: this.state.image
           }
           productsRef.set(product);
           this.handleClose();

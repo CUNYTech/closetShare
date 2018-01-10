@@ -17,9 +17,6 @@ class Charity extends Component {
   render() {
    return (
     <div>
-        <div>
-          Google Search bar
-        </div>
         <h3>America's Top 50 charities</h3>
         <Table>
           <TableHeader>

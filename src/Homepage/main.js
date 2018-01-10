@@ -4,7 +4,6 @@ import {Link} from 'react-router';
 import { Route, Redirect, Switch,HashRouter} from 'react-router-dom';
 import Header from './header';
 import Cover from './cover';
-import Footer from './footer';
 import Homepage from './homepage';
 
 
@@ -13,10 +12,9 @@ render(){
 return(
      <div className = "main">
      
-     <Header/>
+    
      <Cover/>
      <Homepage/>
-     <Footer/>
      
 
     </div>

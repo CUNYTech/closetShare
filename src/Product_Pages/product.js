@@ -35,8 +35,7 @@ class Product extends Component {
     } 
   });
     const productsRef = firebase.database().ref('products');
-    const imageRef = firebase.storage().ref('images');
-    // debugger;
+    const imageRef = firebase.storage().ref('images/');
     productsRef.on('value', (snapshot) => {
       let products = snapshot.val();
       let newState = [];
@@ -66,7 +65,7 @@ class Product extends Component {
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 500,
+        width: 700,
         height: 450,
         overflowY: 'auto',
       },
