@@ -14,9 +14,6 @@ return(
       <p> The Future of Giving</p>
   </div>
 </div>
-
-
-
 );
 }
 }
