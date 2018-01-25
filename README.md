@@ -4,3 +4,5 @@ Tech Stack:
 1. Front end: ReactJS with bootstrap
 2. Backend: 
 3. DataBase: Firebase
+
+Live Version: https://closet-share.firebaseapp.com/#/
